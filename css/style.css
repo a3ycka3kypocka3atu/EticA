@@ -373,9 +373,8 @@ ul {
 
 .hero-parallax-sun {
     position: absolute;
-    bottom: -120px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: -150px;
+    right: 10%;
     opacity: 0;
     pointer-events: none;
     z-index: 1; /* Below the hero content */

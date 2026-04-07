@@ -71,10 +71,24 @@
             
             <!-- Parallax Sun -->
             <div class="hero-parallax-sun" id="parallaxSun">
-                <svg width="240" height="240" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="30" fill="var(--color-gold)" opacity="0.9" />
-                    <!-- Minimal Rays -->
-                    <path d="M50 10 V16 M50 84 V90 M10 50 H16 M84 50 H90 M23 23 L27 27 M73 73 L77 77 M73 23 L77 27 M23 73 L27 77" stroke="var(--color-gold)" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+                <svg width="400" height="400" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- Space aura that is darker orange in center and fades out -->
+                        <radialGradient id="sun-orange-glow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#cc4400" stop-opacity="0.8"/>
+                            <stop offset="35%" stop-color="#e67300" stop-opacity="0.4"/>
+                            <stop offset="100%" stop-color="#ffb300" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    
+                    <!-- Glowing space aura -->
+                    <circle cx="50" cy="50" r="50" fill="url(#sun-orange-glow)" />
+                    
+                    <!-- Sun Core -->
+                    <circle cx="50" cy="50" r="16" fill="var(--color-gold)" opacity="0.9" />
+                    
+                    <!-- Rays -->
+                    <path d="M50 15 V25 M50 75 V85 M15 50 H25 M75 50 H85 M25 25 L32 32 M75 75 L68 68 M75 25 L68 32 M25 75 L32 68" stroke="var(--color-gold)" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
                 </svg>
             </div>
         </section>

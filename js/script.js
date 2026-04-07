@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     opacity = Math.sin((scrolled / heroHeight) * Math.PI);
                 }
                 
-                parallaxSun.style.transform = `translate(-50%, ${translateY}px)`;
+                parallaxSun.style.transform = `translateY(${translateY}px)`;
                 parallaxSun.style.opacity = Math.max(0, Math.min(1, opacity));
             } else {
                 parallaxSun.style.opacity = 0;
