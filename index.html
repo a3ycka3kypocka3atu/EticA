@@ -69,6 +69,25 @@
             </div>
             <div class="hero-bg-accent"></div>
             
+            <!-- Parallax Stars -->
+            <div class="hero-parallax-stars" id="parallaxStars">
+                <svg width="100%" height="100%" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10%" cy="15%" r="1.5" fill="white" opacity="0.8"/>
+                    <circle cx="15%" cy="30%" r="2" fill="white" opacity="0.5"/>
+                    <circle cx="25%" cy="10%" r="2.5" fill="white" opacity="0.9" filter="blur(1px)"/>
+                    <circle cx="40%" cy="25%" r="1" fill="white" opacity="0.7"/>
+                    <circle cx="50%" cy="8%" r="2" fill="white" opacity="0.8"/>
+                    <circle cx="60%" cy="35%" r="1.5" fill="white" opacity="0.6"/>
+                    <circle cx="75%" cy="15%" r="3" fill="white" opacity="0.9" filter="blur(1px)"/>
+                    <circle cx="85%" cy="28%" r="1" fill="white" opacity="0.8"/>
+                    <circle cx="95%" cy="12%" r="2" fill="white" opacity="0.5"/>
+                    <circle cx="35%" cy="40%" r="1" fill="white" opacity="0.4"/>
+                    <circle cx="65%" cy="20%" r="1.5" fill="white" opacity="0.7"/>
+                    <circle cx="5%" cy="25%" r="1.5" fill="white" opacity="0.5"/>
+                    <circle cx="80%" cy="5%" r="2" fill="white" opacity="0.9"/>
+                </svg>
+            </div>
+            
             <!-- Parallax Sun -->
             <div class="hero-parallax-sun" id="parallaxSun">
                 <svg width="400" height="400" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,6 +108,59 @@
                     
                     <!-- Rays -->
                     <path d="M50 15 V25 M50 75 V85 M15 50 H25 M75 50 H85 M25 25 L32 32 M75 75 L68 68 M75 25 L68 32 M25 75 L32 68" stroke="var(--color-gold)" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                </svg>
+            </div>
+            
+            <!-- Parallax Clouds (Foreground) -->
+            <div class="hero-parallax-clouds" id="parallaxClouds">
+                <svg width="100%" height="100%" viewBox="0 0 1000 450" preserveAspectRatio="xMidYMax meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="cloud-purple" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#fff2fc"/>
+                            <stop offset="60%" stop-color="#e3d5f5"/>
+                            <stop offset="100%" stop-color="#7379a6"/>
+                        </linearGradient>
+                        <linearGradient id="cloud-blue" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#f0f7ff"/>
+                            <stop offset="70%" stop-color="#bacdec"/>
+                            <stop offset="100%" stop-color="#466487"/>
+                        </linearGradient>
+                        <linearGradient id="cloud-white" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="80%" stop-color="#eef1f7"/>
+                            <stop offset="100%" stop-color="#a8b9cc"/>
+                        </linearGradient>
+                        <!-- Puffy Drop Shadow -->
+                        <filter id="shadow-puffy" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="0" dy="15" stdDeviation="15" flood-color="#020912" flood-opacity="0.4"/>
+                        </filter>
+                    </defs>
+                    
+                    <g filter="url(#shadow-puffy)">
+                        <!-- Right Background (Blue spectrum covering the sun right side slightly) -->
+                        <circle cx="750" cy="280" r="100" fill="url(#cloud-blue)"/>
+                        <circle cx="900" cy="240" r="120" fill="url(#cloud-blue)"/>
+                        <circle cx="1050" cy="260" r="100" fill="url(#cloud-blue)"/>
+                        
+                        <!-- Left Background (Purple Morning Spectrum) -->
+                        <circle cx="-50" cy="280" r="110" fill="url(#cloud-purple)"/>
+                        <circle cx="150" cy="250" r="130" fill="url(#cloud-purple)"/>
+                        <circle cx="350" cy="230" r="120" fill="url(#cloud-purple)"/>
+                        <circle cx="550" cy="270" r="100" fill="url(#cloud-purple)"/>
+
+                        <!-- Center/Foreground Main Dense Cluster (White/Blue mix) -->
+                        <circle cx="50" cy="320" r="100" fill="url(#cloud-white)"/>
+                        <circle cx="250" cy="300" r="120" fill="url(#cloud-white)"/>
+                        <circle cx="450" cy="280" r="110" fill="url(#cloud-white)"/>
+                        <circle cx="650" cy="310" r="90" fill="url(#cloud-white)"/>
+                        <circle cx="850" cy="330" r="80" fill="url(#cloud-white)"/>
+                        
+                        <!-- Extra white cloud covering center below right -->
+                        <circle cx="550" cy="340" r="110" fill="url(#cloud-white)"/>
+                        
+                        <!-- Fill the bottom completely to mask below the sun -->
+                        <rect x="-100" y="320" width="1200" height="200" fill="url(#cloud-white)" />
+                    </g>
                 </svg>
             </div>
         </section>

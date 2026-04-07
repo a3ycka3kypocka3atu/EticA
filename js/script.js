@@ -55,31 +55,59 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 3000);
         }, 300);
     }
-    
-    // Parallax Sun Effect
+    // Parallax Sun, Clouds, Stars Effect
     const parallaxSun = document.getElementById('parallaxSun');
+    const parallaxClouds = document.getElementById('parallaxClouds');
+    const parallaxStars = document.getElementById('parallaxStars');
     const heroSection = document.querySelector('.hero');
     
-    if (parallaxSun && heroSection) {
+    if (heroSection) {
         window.addEventListener('scroll', () => {
             const scrolled = window.scrollY;
             const heroHeight = heroSection.offsetHeight;
             
-            // Only animate while hero is in view
-            if (scrolled < heroHeight) {
-                // Move up as you scroll down
+            // Only animate while hero is broadly in view
+            if (scrolled < heroHeight + 200) {
+                const scrollProgress = scrolled / heroHeight;
                 const translateY = -(scrolled * 0.85); 
+                const cloudsTranslateY = -(scrolled * 0.70); // Clouds rise slightly slower than sun
                 
-                // Fade in then out using a sine wave projection over the scroll distance
-                let opacity = 0;
-                if (scrolled > 10) {
-                    opacity = Math.sin((scrolled / heroHeight) * Math.PI);
+                // Fade in then out logic for sun & clouds
+                let mainOpacity = 0;
+                if (scrolled > 5) {
+                    mainOpacity = Math.sin(scrollProgress * Math.PI);
                 }
                 
-                parallaxSun.style.transform = `translateY(${translateY}px)`;
-                parallaxSun.style.opacity = Math.max(0, Math.min(1, opacity));
+                // Stars fade in at top, fade out early as sun/clouds ("morning") appears
+                let starsOpacity = 0;
+                if (scrollProgress > 0 && scrollProgress < 0.6) {
+                    if (scrollProgress < 0.1) {
+                        starsOpacity = scrollProgress / 0.1; // Fade in
+                    } else if (scrollProgress > 0.3) {
+                        starsOpacity = Math.max(0, 1 - ((scrollProgress - 0.3) / 0.3)); // Fade out from 0.3 to 0.6
+                    } else {
+                        starsOpacity = 1;
+                    }
+                }
+                
+                if (parallaxSun) {
+                    parallaxSun.style.transform = `translateY(${translateY}px)`;
+                    parallaxSun.style.opacity = Math.max(0, Math.min(1, mainOpacity));
+                }
+                
+                if (parallaxClouds) {
+                    parallaxClouds.style.transform = `translateY(${cloudsTranslateY}px)`;
+                    parallaxClouds.style.opacity = Math.max(0, Math.min(1, mainOpacity));
+                }
+                
+                if (parallaxStars) {
+                    parallaxStars.style.opacity = Math.max(0, Math.min(1, starsOpacity));
+                }
+                
             } else {
-                parallaxSun.style.opacity = 0;
+                if (parallaxSun) parallaxSun.style.opacity = 0;
+                if (parallaxClouds) parallaxClouds.style.opacity = 0;
+                if (parallaxStars) parallaxStars.style.opacity = 0;
             }
         });
     }

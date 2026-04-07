@@ -332,7 +332,7 @@ ul {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
-    z-index: 2;
+    z-index: 5;
 }
 
 .hero-title {
@@ -371,13 +371,37 @@ ul {
     pointer-events: none;
 }
 
+.hero-parallax-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    will-change: opacity;
+}
+
 .hero-parallax-sun {
     position: absolute;
     bottom: -150px;
-    right: 10%;
+    right: 5%;
     opacity: 0;
     pointer-events: none;
-    z-index: 1; /* Below the hero content */
+    z-index: 1; /* Below the clouds */
+    will-change: transform, opacity;
+}
+
+.hero-parallax-clouds {
+    position: absolute;
+    bottom: -200px;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2; /* In front of the sun, behind content */
     will-change: transform, opacity;
 }
 
