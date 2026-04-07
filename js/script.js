@@ -55,4 +55,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 3000);
         }, 300);
     }
+    
+    // Parallax Sun Effect
+    const parallaxSun = document.getElementById('parallaxSun');
+    const heroSection = document.querySelector('.hero');
+    
+    if (parallaxSun && heroSection) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const heroHeight = heroSection.offsetHeight;
+            
+            // Only animate while hero is in view
+            if (scrolled < heroHeight) {
+                // Move up as you scroll down
+                const translateY = -(scrolled * 0.85); 
+                
+                // Fade in then out using a sine wave projection over the scroll distance
+                let opacity = 0;
+                if (scrolled > 10) {
+                    opacity = Math.sin((scrolled / heroHeight) * Math.PI);
+                }
+                
+                parallaxSun.style.transform = `translate(-50%, ${translateY}px)`;
+                parallaxSun.style.opacity = Math.max(0, Math.min(1, opacity));
+            } else {
+                parallaxSun.style.opacity = 0;
+            }
+        });
+    }
 });
