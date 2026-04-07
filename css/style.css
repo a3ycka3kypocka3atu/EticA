@@ -266,6 +266,18 @@ ul {
     color: var(--color-white);
 }
 
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
 .logo-icon i {
     color: var(--color-gold);
     font-size: 1.8rem;
