@@ -1,27 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Internationalization (i18n) Logic
-    const langBtn = document.getElementById('langToggle');
-    const langDropdown = document.getElementById('langDropdown');
     const langOptions = document.querySelectorAll('.lang-option');
-    const currentLangDisplay = document.getElementById('currentLangDisplay');
-    
-    // Toggle dropdown
-    if(langBtn) {
-        langBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            langDropdown.classList.toggle('show');
-            const expanded = langBtn.getAttribute('aria-expanded') === 'true' || false;
-            langBtn.setAttribute('aria-expanded', !expanded);
-        });
-    }
-
-    // Close dropdown on outside click
-    document.addEventListener('click', (e) => {
-        if (langDropdown && langDropdown.classList.contains('show') && !e.target.closest('.lang-switcher')) {
-            langDropdown.classList.remove('show');
-            langBtn.setAttribute('aria-expanded', 'false');
-        }
-    });
 
     // Translation function
     function setLanguage(lang) {
@@ -29,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const dict = window.translations[lang];
         
-        // Update all data-i18n elements
+        // Ensure dict applies safely
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (dict[key]) {
@@ -40,10 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-
-        // Update display text and active class
-        if (currentLangDisplay) currentLangDisplay.textContent = lang.toUpperCase();
         
+        // Handle active class
         langOptions.forEach(btn => {
             if (btn.getAttribute('data-lang') === lang) {
                 btn.classList.add('active');
@@ -54,14 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Save preference
         localStorage.setItem('preferredLang', lang);
-        
-        // Update document lang attribute
         document.documentElement.lang = lang;
-        
-        if (langDropdown) {
-            langDropdown.classList.remove('show');
-            langBtn.setAttribute('aria-expanded', 'false');
-        }
     }
 
     // Language option click listeners
