@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prosvit Agency | Етичний Маркетинг та Розвиток</title>
-    <meta name="description" content="Агенція Професійної Солідарності. Етичний маркетинг, цифрова присутність та розвиток свідомих проєктів.">
+    <meta name="description" content="Агенція Професійної Солідарності. Етичний маркетинг, цифрова присутність та розвиток свідомих проєктів." data-i18n="seo_desc">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -42,10 +42,23 @@
                     <span class="logo-text">PROSVIT <span style="font-weight: 300; font-size: 0.8rem; letter-spacing: 1px; color: var(--color-white-muted);">Conscious Agency</span></span>
                 </a>
                 <ul class="nav-links">
-                    <li><a href="#about">Філософія</a></li>
-                    <li><a href="#services">Послуги</a></li>
-                    <li><a href="#ecosystem">Екосистема</a></li>
-                    <li><a href="#contact" class="btn btn-outline">Обговорити проєкт</a></li>
+                    <li><a href="#about" data-i18n="nav_philosophy">Філософія</a></li>
+                    <li><a href="#services" data-i18n="nav_services">Послуги</a></li>
+                    <li><a href="#ecosystem" data-i18n="nav_ecosystem">Екосистема</a></li>
+                    <li><a href="#contact" class="btn btn-outline" data-i18n="nav_contact">Обговорити проєкт</a></li>
+                    
+                    <!-- Language Switcher -->
+                    <li class="lang-switcher">
+                        <button class="lang-btn" aria-haspopup="true" aria-expanded="false" id="langToggle">
+                            <i class="ph ph-globe"></i> <span id="currentLangDisplay">UA</span> <i class="ph ph-caret-down"></i>
+                        </button>
+                        <ul class="lang-dropdown" id="langDropdown">
+                            <li><button class="lang-option active" data-lang="ua">UA</button></li>
+                            <li><button class="lang-option" data-lang="en">EN</button></li>
+                            <li><button class="lang-option" data-lang="cz">CZ</button></li>
+                            <li><button class="lang-option" data-lang="ru">RU</button></li>
+                        </ul>
+                    </li>
                 </ul>
                 <button class="mobile-menu-toggle" aria-label="Відкрити меню">
                     <i class="ph ph-list"></i>
@@ -59,11 +72,11 @@
         <section class="hero" id="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Професійний Маркетинг<br> та Свідомий Розвиток</h1>
-                    <p class="hero-subtitle">Якісне зростання для ініціатив та бізнесу. Автоматизація та співпраця, що базуються на прозорості та здорових цінностях.</p>
+                    <h1 class="hero-title" data-i18n="hero_title">Професійний Маркетинг<br> та Свідомий Розвиток</h1>
+                    <p class="hero-subtitle" data-i18n="hero_subtitle">Якісне зростання для ініціатив та бізнесу. Автоматизація та співпраця, що базуються на прозорості та здорових цінностях.</p>
                     <div class="hero-actions">
-                        <a href="#services" class="btn btn-primary">Напрямки роботи</a>
-                        <a href="#about" class="btn btn-secondary">Докладніше</a>
+                        <a href="#services" class="btn btn-primary" data-i18n="hero_btn_services">Напрямки роботи</a>
+                        <a href="#about" class="btn btn-secondary" data-i18n="hero_btn_about">Докладніше</a>
                     </div>
                 </div>
             </div>
@@ -170,10 +183,10 @@
             <div class="container">
                 <div class="section-grid">
                     <div class="section-text">
-                        <span class="eyebrow">НАШ ПІДХІД</span>
-                        <h2>Ефективність в системності та флексибільності.</h2>
-                        <p>Ми поєднуємо високі стандарти ринку з людяним ставленням. Наш підхід це ясна комунікація, прямий зв'язок між наміром і дією та професійна відповідальність за результат.</p>
-                        <p>Працюючи з нами, ви отримуєте надійного партнера, який береже ваш час, спокій та репутацію.</p>
+                        <span class="eyebrow" data-i18n="about_eyebrow">НАШ ПІДХІД</span>
+                        <h2 data-i18n="about_title">Ефективність в системності та флексибільності.</h2>
+                        <p data-i18n="about_p1">Ми поєднуємо високі стандарти ринку з людяним ставленням. Наш підхід це ясна комунікація, прямий зв'язок між наміром і дією та професійна відповідальність за результат.</p>
+                        <p data-i18n="about_p2">Працюючи з нами, ви отримуєте надійного партнера, який береже ваш час, спокій та репутацію.</p>
                     </div>
                     <div class="about-cards">
                         <div class="info-card dark-green-card">
@@ -209,8 +222,8 @@
                                 <path d="M 270 95 L 270 60 M 260 70 L 280 70 L 270 45 Z" stroke="#278c62" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M 290 95 L 285 85 L 295 75 L 280 65" stroke="#1ca88d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <h3>Екосистемний підхід та партнерства.</h3>
-                            <p>Prosvit Agency є флагманським проєктом всередині ширшої платформи для свідомого нетворкінгу. Для вашого бізнесу та ініціатив це означає швидкий доступ до перевірених фахівців, з яких ми формуємо команди під конкретні запити.</p>
+                            <h3 data-i18n="card_eco_title">Екосистемний підхід та партнерства.</h3>
+                            <p data-i18n="card_eco_desc">Prosvit Agency є флагманським проєктом всередині ширшої платформи для свідомого нетворкінгу. Для вашого бізнесу та ініціатив це означає швидкий доступ до перевірених фахівців, з яких ми формуємо команди під конкретні запити.</p>
                         </div>
                         <div class="info-card deep-blue-card">
                             <svg class="card-icon" width="100%" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin-bottom: 2rem;">
@@ -242,8 +255,8 @@
                                 <path d="M 270 35 C 260 35, 265 25, 275 25 C 280 15, 295 20, 290 35 C 305 35, 295 45, 285 40 Z" stroke="#c0e2f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M 285 85 C 275 85, 280 75, 290 75 C 295 65, 305 70, 300 85 Z" stroke="#0e3860" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <h3>Мережа можливостей</h3>
-                            <p>Ми також допомагаємо будувати екосистемні зв'язки та створювати крос-маркетингові кампанії з іншими проєктами платформи для обміну аудиторіями, ідеями та ресурсами.</p>
+                            <h3 data-i18n="card_net_title">Мережа можливостей</h3>
+                            <p data-i18n="card_net_desc">Ми також допомагаємо будувати екосистемні зв'язки та створювати крос-маркетингові кампанії з іншими проєктами платформи для обміну аудиторіями, ідеями та ресурсами.</p>
                         </div>
                     </div>
                 </div>
@@ -254,9 +267,9 @@
         <section class="section services" id="services">
             <div class="container">
                 <div class="section-header center">
-                    <span class="eyebrow">Наші інструменти</span>
-                    <h2>Комплексні рішення для розвитку</h2>
-                    <p class="subtitle">Від позиціонування до побудови життєздатних та гармонійних систем.</p>
+                    <span class="eyebrow" data-i18n="services_eyebrow">Наші інструменти</span>
+                    <h2 data-i18n="services_title">Комплексні рішення для розвитку</h2>
+                    <p class="subtitle" data-i18n="services_subtitle">Від позиціонування до побудови життєздатних та гармонійних систем.</p>
                 </div>
 
                 <div class="services-grid">
@@ -264,48 +277,48 @@
                     <div class="service-card theme-blue">
                         <div class="card-glow"></div>
                         <i class="ph ph-eye card-icon"></i>
-                        <h3>Стратегічний Маркетинг</h3>
-                        <p>Чітке позиціонування та стратегія бренду. Аналіз аудиторії і побудова продажів через трансляцію цінності та довіру через автентичність.</p>
+                        <h3 data-i18n="srv_strat_title">Стратегічний Маркетинг</h3>
+                        <p data-i18n="srv_strat_desc">Чітке позиціонування та стратегія бренду. Аналіз аудиторії і побудова продажів через трансляцію цінності та довіру через автентичність.</p>
                     </div>
 
                     <!-- Blue/Green Theme: Efficiency -->
                     <div class="service-card theme-blue-green">
                         <div class="card-glow"></div>
                         <i class="ph ph-cpu card-icon"></i>
-                        <h3>Ефективізація та AI</h3>
-                        <p>Впровадження автоматизації та нейромереж для зняття рутини, структурування баз знань та оптимізації процесів.</p>
+                        <h3 data-i18n="srv_ai_title">Ефективізація та AI</h3>
+                        <p data-i18n="srv_ai_desc">Впровадження автоматизації та нейромереж для зняття рутини, структурування баз знань та оптимізації процесів.</p>
                     </div>
 
                     <!-- Green Theme: Practice & Team -->
                     <div class="service-card theme-green">
                         <div class="card-glow"></div>
                         <i class="ph ph-users-three card-icon"></i>
-                        <h3>Синхронізація команди</h3>
-                        <p>Побудова ефективних робочих процесів. Налагоджуємо прозору внутрішню комунікацію та створюємо здорову культуру для співпраці.</p>
+                        <h3 data-i18n="srv_team_title">Синхронізація команди</h3>
+                        <p data-i18n="srv_team_desc">Побудова ефективних робочих процесів. Налагоджуємо прозору внутрішню комунікацію та створюємо здорову культуру для співпраці.</p>
                     </div>
 
                     <!-- White/Green Theme: Design -->
                     <div class="service-card theme-mint">
                         <div class="card-glow"></div>
                         <i class="ph ph-desktop card-icon"></i>
-                        <h3>Цифрова Присутність</h3>
-                        <p>Сучасна веб-розробка, UI/UX дизайн і тексти, що транслюють суть вашого бізнесу і викликають довіру з перших секунд.</p>
+                        <h3 data-i18n="srv_digital_title">Цифрова Присутність</h3>
+                        <p data-i18n="srv_digital_desc">Сучасна веб-розробка, UI/UX дизайн і тексти, що транслюють суть вашого бізнесу і викликають довіру з перших секунд.</p>
                     </div>
 
                     <!-- Green/Yellow Theme: Physical Spaces -->
                     <div class="service-card theme-green-gold">
                         <div class="card-glow"></div>
                         <i class="ph ph-house-line card-icon"></i>
-                        <h3>Фізичні Простори</h3>
-                        <p>Дизайн та оптимізація комерційних локацій (офіси, хаби, робочі простори). Поєднуємо продуману ергономіку, сучасну естетику та практичний функціонал під задачі вашого бізнесу.</p>
+                        <h3 data-i18n="srv_spaces_title">Фізичні Простори</h3>
+                        <p data-i18n="srv_spaces_desc">Дизайн та оптимізація комерційних локацій (офіси, хаби, робочі простори). Поєднуємо продуману ергономіку, сучасну естетику та практичний функціонал під задачі вашого бізнесу.</p>
                     </div>
 
                     <!-- Yellow Theme: Partnership & Evolution -->
                     <div class="service-card theme-gold">
                         <div class="card-glow"></div>
                         <i class="ph ph-handshake card-icon"></i>
-                        <h3>Еволюція Бізнесу</h3>
-                        <p>Екологізація процесів класичних компаній, крос-маркетинг та розбудова корпоративних партнерств зі змістом.</p>
+                        <h3 data-i18n="srv_evo_title">Еволюція Бізнесу</h3>
+                        <p data-i18n="srv_evo_desc">Екологізація процесів класичних компаній, крос-маркетинг та розбудова корпоративних партнерств зі змістом.</p>
                     </div>
                 </div>
             </div>
@@ -317,8 +330,8 @@
                 <div class="ecosystem-content">
                     <div class="ecosystem-text">
                         <i class="ph ph-star ecosystem-icon"></i>
-                        <h2>Економіка агенції</h2>
-                        <p>Коли агенція генерує фінансовий прибуток від комерційних замовлень, ці кошти не осідають у приватних кишенях. Вони спрямовуються у спільний фонд платформи, звідки фінансуються поточні завдання, розвиток нових інструментів та пряма підтримка тих ідей та людей, які перебувають на етапі закріплення в суспільстві.</p>
+                        <h2 data-i18n="eco_title">Економіка агенції</h2>
+                        <p data-i18n="eco_desc">Коли агенція генерує фінансовий прибуток від комерційних замовлень, ці кошти не осідають у приватних кишенях. Вони спрямовуються у спільний фонд платформи, звідки фінансуються поточні завдання, розвиток нових інструментів та пряма підтримка тих ідей та людей, які перебувають на етапі закріплення в суспільстві.</p>
                     </div>
                     <div class="ecosystem-visual">
                         <!-- Abstract representation of the stones / gold bottom -->
@@ -337,10 +350,10 @@
         <!-- CTA / Contact -->
         <section class="section cta-section" id="contact">
             <div class="container center">
-                <h2>Готові розпочати Шлях?</h2>
-                <p class="subtitle">Зв'яжіться з нами для обговорення вашого проєкту або знайомства з платформою.</p>
+                <h2 data-i18n="cta_title">Готові розпочати Шлях?</h2>
+                <p class="subtitle" data-i18n="cta_subtitle">Зв'яжіться з нами для обговорення вашого проєкту або знайомства з платформою.</p>
                 <div class="contact-links">
-                    <a href="mailto:hello@prosvit.agency" class="btn btn-primary"><i class="ph ph-envelope-simple"></i> Написати нам</a>
+                    <a href="mailto:hello@prosvit.agency" class="btn btn-primary"><i class="ph ph-envelope-simple"></i> <span data-i18n="cta_btn_email">Написати нам</span></a>
                     <a href="#" class="btn btn-outline"><i class="ph ph-paper-plane-tilt"></i> Telegram</a>
                 </div>
             </div>
@@ -369,15 +382,16 @@
                         </span>
                         <span class="logo-text">PROSVIT <span style="font-weight: 300; font-size: 0.8rem; letter-spacing: 1px; color: var(--color-white-muted);">Conscious Agency</span></span>
                     </a>
-                    <p>Етичний маркетинг та розвиток.</p>
+                    <p data-i18n="footer_desc">Етичний маркетинг та розвиток.</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Prosvit Agency. Агенція Професійної Солідарності.</p>
+                <p data-i18n="footer_copy">&copy; 2026 Prosvit Agency. Агенція Професійної Солідарності.</p>
             </div>
         </div>
     </footer>
 
+    <script src="js/translations.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
