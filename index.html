@@ -13,6 +13,33 @@
 </head>
 <body>
 
+    <!-- Ecosystem Layer: Particles, Currents & Vines -->
+    <div class="ecosystem-layer" id="ecosystemLayer">
+        <!-- SVG Definitions -->
+        <svg width="0" height="0" style="position:absolute">
+            <defs>
+                <linearGradient id="vineGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#0F3325"/>
+                    <stop offset="60%" stop-color="#278C62"/>
+                    <stop offset="100%" stop-color="#D4AF37"/>
+                </linearGradient>
+                <linearGradient id="vineGradientBranch" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#165c3e"/>
+                    <stop offset="100%" stop-color="#a7dec5"/>
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <!-- Flowing Currents (Background) -->
+        <div class="currents-container" id="currentsContainer"></div>
+
+        <!-- Growing Vines (Midground) -->
+        <div class="vines-container" id="vinesContainer"></div>
+
+        <!-- Drifting Particles (Foreground) -->
+        <div class="particles-container" id="particlesContainer"></div>
+    </div>
+
     <!-- Animation Layer for the "Ray's Path" Element -->
     <div class="ray-path">
         <div class="ray-line"></div>
