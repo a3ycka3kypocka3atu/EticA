@@ -47,6 +47,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('preferredLang') || 'ua';
     setLanguage(savedLang);
 
+    // =====================================================================
+    // THEME TOGGLE - Dark/Light Mode
+    // =====================================================================
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    function setTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('preferredTheme', theme);
+
+        const icon = themeToggle.querySelector('i');
+        if (theme === 'light') {
+            icon.classList.remove('ph-moon');
+            icon.classList.add('ph-sun');
+        } else {
+            icon.classList.remove('ph-sun');
+            icon.classList.add('ph-moon');
+        }
+    }
+
+    function getPreferredTheme() {
+        const saved = localStorage.getItem('preferredTheme');
+        if (saved) return saved;
+
+        // Check system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            return 'light';
+        }
+        return 'dark';
+    }
+
+    // Initialize theme
+    setTheme(getPreferredTheme());
+
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            // Only auto-switch if user hasn't manually set a preference
+            if (!localStorage.getItem('preferredTheme')) {
+                setTheme(e.matches ? 'light' : 'dark');
+            }
+        });
+    }
+
+    // Toggle button click
+    themeToggle.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        setTheme(current === 'light' ? 'dark' : 'light');
+    });
+
     // Header Scroll Effect
     const header = document.getElementById('header');
 

@@ -1,43 +1,101 @@
 /* ==========================================================================
-   CSS VARIABLES - PREMIUM DARK ORGANIC BIOPHILIC THEME
+   CSS VARIABLES - PREMIUM ORGANIC BIOPHILIC THEME
+   Supports: Dark (default) and Light modes via [data-theme="light"]
    ========================================================================== */
 :root {
-    /* Base Colors */
-    --color-bg-base: #061110;       /* Super dark pine/ocean mix */
-    --color-bg-alt: #091A16;        /* Slightly lighter dark green */
-    
+    /* Base Colors - Dark Mode Default */
+    --color-bg-base: #061110;
+    --color-bg-alt: #091A16;
+
     /* The Four Elements */
-    --color-white: #EFF5F5;         /* Air/Space - Bone white, muted */
+    --color-white: #EFF5F5;
     --color-white-muted: rgba(239, 245, 245, 0.6);
-    
-    --color-blue-dark: #092036;     /* Deep Ocean Blue */
+
+    --color-blue-dark: #092036;
     --color-blue-light: #256B9E;
-    
-    --color-green-dark: #0F3325;    /* Deep Pine Green */
+
+    --color-green-dark: #0F3325;
     --color-green-light: #278C62;
-    
-    --color-gold: #D4AF37;          /* Solar Gold / Sand */
+
+    --color-gold: #D4AF37;
     --color-gold-glow: rgba(212, 175, 55, 0.4);
 
     /* UI Colors */
     --text-primary: var(--color-white);
     --text-secondary: #9DBEB5;
-    
+    --text-muted: rgba(157, 190, 181, 0.6);
+
     --border-subtle: rgba(157, 190, 181, 0.15);
-    
+    --border-strong: rgba(157, 190, 181, 0.3);
+
+    /* Shadows */
+    --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 30px var(--color-gold-glow);
+
+    /* Ecosystem Layer - Dark Mode */
+    --ecosystem-bg: transparent;
+    --ecosystem-text: rgba(239, 245, 245, 0.6);
+
+    /* Card backgrounds */
+    --card-bg: rgba(255, 255, 255, 0.02);
+    --card-bg-hover: rgba(255, 255, 255, 0.05);
+    --card-border: var(--border-subtle);
+
+    /* Header */
+    --header-bg: rgba(6, 17, 16, 0.9);
+    --header-scrolled-bg: rgba(6, 17, 16, 0.95);
+
+    /* Ray path */
+    --ray-bg: linear-gradient(to bottom,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.05) 50%,
+        var(--color-gold-glow) 90%,
+        rgba(212, 175, 55, 0) 100%);
+
     /* Typography */
     --font-heading: 'Lora', serif;
     --font-body: 'Raleway', sans-serif;
-    
+
     /* Effects */
     --radius-sm: 12px;
     --radius-md: 24px;
     --radius-lg: 40px;
     --radius-organic: 40px 16px 40px 16px;
-    
+
     --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.4);
-    --shadow-glow: 0 0 30px var(--color-gold-glow);
+}
+
+/* ==========================================================================
+   LIGHT MODE OVERRIDES
+   ========================================================================== */
+[data-theme="light"] {
+    --color-bg-base: #FAF8F5;
+    --color-bg-alt: #F0EDE8;
+
+    --text-primary: #1A1A1A;
+    --text-secondary: #5C5C5C;
+    --text-muted: rgba(92, 92, 92, 0.6);
+
+    --border-subtle: rgba(26, 26, 26, 0.1);
+    --border-strong: rgba(26, 26, 26, 0.25);
+
+    --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.3);
+
+    --ecosystem-text: rgba(26, 26, 26, 0.4);
+
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-bg-hover: rgba(255, 255, 255, 0.9);
+    --card-border: rgba(26, 26, 26, 0.08);
+
+    --header-bg: rgba(250, 248, 245, 0.9);
+    --header-scrolled-bg: rgba(250, 248, 245, 0.95);
+
+    --ray-bg: linear-gradient(to bottom,
+        rgba(255,255,255,0) 0%,
+        rgba(212, 175, 55, 0.05) 50%,
+        rgba(212, 175, 55, 0.15) 90%,
+        rgba(212, 175, 55, 0) 100%);
 }
 
 /* ==========================================================================
@@ -121,6 +179,7 @@ ul {
     font-size: 1.1rem;
     max-width: 600px;
     margin: 0 auto 3rem;
+    color: var(--text-secondary);
 }
 
 /* ==========================================================================
@@ -153,13 +212,13 @@ ul {
 
 .btn-secondary {
     background: transparent;
-    color: var(--color-white);
+    color: var(--text-primary);
     border: 1px solid var(--border-subtle);
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--color-white-muted);
+    background: var(--card-bg-hover);
+    border-color: var(--border-strong);
 }
 
 .btn-outline {
@@ -175,6 +234,46 @@ ul {
 }
 
 /* ==========================================================================
+   THEME TOGGLE BUTTON
+   ========================================================================== */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.theme-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover i {
+    transform: rotate(15deg);
+}
+
+[data-theme="light"] .theme-toggle {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
    RAY'S PATH ANIMATION LAYER
    ========================================================================== */
 .ray-path {
@@ -186,11 +285,7 @@ ul {
     height: 100vh;
     z-index: 0;
     pointer-events: none;
-    background: linear-gradient(to bottom, 
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.05) 50%,
-        var(--color-gold-glow) 90%,
-        rgba(212, 175, 55, 0) 100%);
+    background: var(--ray-bg);
 }
 
 .ray-line {
@@ -240,13 +335,13 @@ ul {
     padding: 1.5rem 0;
     z-index: 100;
     transition: var(--transition);
-    background: linear-gradient(to bottom, rgba(6, 17, 16, 0.9) 0%, rgba(6, 17, 16, 0) 100%);
+    background: var(--header-bg);
     backdrop-filter: blur(10px);
 }
 
 .header.scrolled {
     padding: 1rem 0;
-    background: rgba(6, 17, 16, 0.95);
+    background: var(--header-scrolled-bg);
     border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -263,7 +358,7 @@ ul {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--color-white);
+    color: var(--text-primary);
 }
 
 .logo-icon {
@@ -305,7 +400,7 @@ ul {
 }
 
 .nav-links li:last-child {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 }
 
 /* Language Switcher Horizontal */
@@ -314,10 +409,10 @@ ul {
     align-items: center;
     gap: 0.2rem;
     margin-left: 0.5rem;
-    background: rgba(255,255,255,0.05);
+    background: var(--card-bg);
     padding: 0.25rem;
     border-radius: 100px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--border-subtle);
 }
 
 .lang-option {
@@ -327,27 +422,31 @@ ul {
     padding: 0.25rem 0.5rem;
     border-radius: 100px;
     cursor: pointer;
-    font-family: var(--font-primary);
+    font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 500;
     transition: all 0.2s ease;
 }
 
 .lang-option:hover {
-    color: var(--color-white);
+    color: var(--text-primary);
 }
 
 .lang-option.active {
-    color: var(--color-white);
-    background: rgba(255,255,255,0.15);
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.15);
     font-weight: 600;
+}
+
+[data-theme="light"] .lang-option.active {
+    background: rgba(0, 0, 0, 0.08);
 }
 
 .mobile-menu-toggle {
     display: none;
     background: none;
     border: none;
-    color: var(--color-white);
+    color: var(--text-primary);
     font-size: 1.5rem;
     cursor: pointer;
 }
@@ -378,9 +477,10 @@ ul {
     font-size: clamp(3rem, 6vw, 5rem);
     letter-spacing: -1px;
     margin-bottom: 1.5rem;
-    background: linear-gradient(to bottom, var(--color-white), var(--text-secondary));
+    background: linear-gradient(to bottom, var(--text-primary), var(--text-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero-subtitle {
@@ -390,6 +490,7 @@ ul {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    color: var(--text-secondary);
 }
 
 .hero-actions {
@@ -405,9 +506,13 @@ ul {
     transform: translate(-50%, -50%);
     width: 60vw;
     height: 60vw;
-    background: radial-gradient(circle, rgba(11, 33, 53, 0.4) 0%, rgba(6, 17, 16, 0) 70%);
+    background: radial-gradient(circle, rgba(11, 33, 53, 0.3) 0%, transparent 70%);
     z-index: 1;
     pointer-events: none;
+}
+
+[data-theme="light"] .hero-bg-accent {
+    background: radial-gradient(circle, rgba(39, 140, 98, 0.15) 0%, transparent 70%);
 }
 
 .hero-parallax-stars {
@@ -428,7 +533,7 @@ ul {
     right: 5%;
     opacity: 0;
     pointer-events: none;
-    z-index: 1; /* Below the clouds */
+    z-index: 1;
     will-change: transform, opacity;
 }
 
@@ -440,7 +545,7 @@ ul {
     height: 400px;
     opacity: 0;
     pointer-events: none;
-    z-index: 2; /* In front of the sun, behind content */
+    z-index: 2;
     will-change: transform, opacity;
 }
 
@@ -479,14 +584,17 @@ ul {
 .info-card {
     padding: 2.5rem;
     border-radius: var(--radius-organic);
-    border: 1px solid var(--border-subtle);
+    border: 1px solid var(--card-border);
     position: relative;
     overflow: hidden;
     transition: var(--transition);
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
 }
 
 .info-card:hover {
     transform: translateY(-5px);
+    background: var(--card-bg-hover);
 }
 
 .dark-green-card {
@@ -494,10 +602,18 @@ ul {
     backdrop-filter: blur(10px);
 }
 
+[data-theme="light"] .dark-green-card {
+    background: linear-gradient(145deg, rgba(39, 140, 98, 0.1), rgba(250, 248, 245, 0.8));
+}
+
 .deep-blue-card {
     background: linear-gradient(145deg, rgba(9, 32, 54, 0.6), rgba(6, 17, 16, 0.8));
     backdrop-filter: blur(10px);
-    border-radius: 16px 40px 16px 40px; /* Inverse organic shape */
+    border-radius: 16px 40px 16px 40px;
+}
+
+[data-theme="light"] .deep-blue-card {
+    background: linear-gradient(145deg, rgba(37, 107, 158, 0.1), rgba(250, 248, 245, 0.8));
 }
 
 .card-icon {
@@ -522,8 +638,8 @@ ul {
 .service-card {
     padding: 2.5rem;
     border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-subtle);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     position: relative;
     overflow: hidden;
     transition: var(--transition);
@@ -534,7 +650,8 @@ ul {
 
 .service-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--border-strong);
+    background: var(--card-bg-hover);
 }
 
 .service-card h3 {
@@ -593,12 +710,13 @@ ul {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-    background: linear-gradient(180deg, var(--color-bg-base) 0%, #0D1612 100%);
+    background: var(--card-bg);
     padding: 4rem;
     border-radius: var(--radius-lg);
-    border: 1px solid var(--border-subtle);
+    border: 1px solid var(--card-border);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .ecosystem-icon {
@@ -649,6 +767,11 @@ ul {
     z-index: 2;
 }
 
+[data-theme="light"] .dark-stone {
+    background: linear-gradient(135deg, #d4d0c8 0%, #a8a49a 100%);
+    box-shadow: inset -5px -5px 15px rgba(0,0,0,0.15);
+}
+
 .s1 { width: 140px; height: 90px; top: 80px; left: -20px; border-radius: 50% 50% 30% 70%; animation: float 7s ease-in-out infinite reverse; }
 .s2 { width: 100px; height: 80px; top: 120px; left: 100px; border-radius: 60% 40% 50% 50%; z-index: 4; }
 .s3 { width: 80px; height: 60px; top: 20px; left: 120px; z-index: 1; opacity: 0.5; }
@@ -667,6 +790,10 @@ ul {
     background: radial-gradient(ellipse at center, rgba(11, 33, 53, 0.4) 0%, transparent 70%);
     border-radius: 50%;
     z-index: 1;
+}
+
+[data-theme="light"] .water-ripple {
+    background: radial-gradient(ellipse at center, rgba(39, 140, 98, 0.2) 0%, transparent 70%);
 }
 
 /* ==========================================================================
@@ -708,9 +835,9 @@ ul {
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--border-subtle);
     font-size: 0.8rem;
-    color: rgba(157, 190, 181, 0.6);
+    color: var(--text-muted);
 }
 
 /* ==========================================================================
@@ -790,6 +917,22 @@ ul {
     animation: particleDrift 18s linear infinite, particlePulse 4s ease-in-out infinite;
 }
 
+/* Light mode particles - softer, warmer */
+[data-theme="light"] .particle--teal {
+    background: radial-gradient(circle, rgba(39, 140, 98, 0.6) 0%, rgba(39, 140, 98, 0.15) 70%, transparent 100%);
+    box-shadow: 0 0 4px 1px rgba(39, 140, 98, 0.2);
+}
+
+[data-theme="light"] .particle--cyan {
+    background: radial-gradient(circle, rgba(37, 107, 158, 0.5) 0%, rgba(37, 107, 158, 0.1) 70%, transparent 100%);
+    box-shadow: 0 0 3px 1px rgba(37, 107, 158, 0.15);
+}
+
+[data-theme="light"] .particle--gold {
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.7) 0%, rgba(212, 175, 55, 0.2) 70%, transparent 100%);
+    box-shadow: 0 0 5px 2px rgba(212, 175, 55, 0.25);
+}
+
 /* --- Flowing Currents --- */
 .currents-container {
     position: absolute;
@@ -832,6 +975,11 @@ ul {
     animation: waveFloat 12s ease-in-out infinite;
 }
 
+/* Light mode currents - subtler, warmer */
+[data-theme="light"] .current-wave path {
+    stroke: rgba(39, 140, 98, 0.25) !important;
+}
+
 /* --- Growing Vines --- */
 .vines-container {
     position: absolute;
@@ -845,6 +993,10 @@ ul {
 .vine {
     position: absolute;
     opacity: 0.7;
+}
+
+[data-theme="light"] .vine {
+    opacity: 0.5;
 }
 
 .vine-path {
@@ -904,15 +1056,16 @@ ul {
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
+@media (max-width: 900px) {
     .section-grid, .ecosystem-content {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-    
+
     .ecosystem-content {
         padding: 3rem 2rem;
     }
-    
+
     .hero-title {
         font-size: 3.5rem;
     }
@@ -922,20 +1075,20 @@ ul {
     .nav-links {
         display: none;
     }
-    
+
     .mobile-menu-toggle {
         display: block;
     }
-    
+
     .services-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .hero-actions {
         flex-direction: column;
         padding: 0 1rem;
     }
-    
+
     .contact-links {
         flex-direction: column;
     }
