@@ -3,9 +3,10 @@
    Supports: Dark (default) and Light modes via [data-theme="light"]
    ========================================================================== */
 :root {
-    /* Base Colors - Dark Mode Default */
-    --color-bg-base: #061110;
-    --color-bg-alt: #091A16;
+    /* Base Colors - Dark Mode Default - Rich and Atmospheric */
+    --color-bg-base: #030D0B;
+    --color-bg-alt: #071512;
+    --color-bg-deep: #020A08;
 
     /* The Four Elements */
     --color-white: #EFF5F5;
@@ -16,6 +17,7 @@
 
     --color-green-dark: #0F3325;
     --color-green-light: #278C62;
+    --color-green-glow: rgba(39, 140, 98, 0.3);
 
     --color-gold: #D4AF37;
     --color-gold-glow: rgba(212, 175, 55, 0.4);
@@ -25,30 +27,31 @@
     --text-secondary: #9DBEB5;
     --text-muted: rgba(157, 190, 181, 0.6);
 
-    --border-subtle: rgba(157, 190, 181, 0.15);
-    --border-strong: rgba(157, 190, 181, 0.3);
+    --border-subtle: rgba(157, 190, 181, 0.12);
+    --border-strong: rgba(157, 190, 181, 0.25);
 
     /* Shadows */
-    --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.4);
+    --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.5);
     --shadow-glow: 0 0 30px var(--color-gold-glow);
+    --shadow-green-glow: 0 0 60px rgba(39, 140, 98, 0.2);
 
     /* Ecosystem Layer - Dark Mode */
     --ecosystem-bg: transparent;
-    --ecosystem-text: rgba(239, 245, 245, 0.6);
+    --ecosystem-text: rgba(239, 245, 245, 0.5);
 
     /* Card backgrounds */
     --card-bg: rgba(255, 255, 255, 0.02);
-    --card-bg-hover: rgba(255, 255, 255, 0.05);
-    --card-border: var(--border-subtle);
+    --card-bg-hover: rgba(255, 255, 255, 0.04);
+    --card-border: rgba(255, 255, 255, 0.06);
 
     /* Header */
-    --header-bg: rgba(6, 17, 16, 0.9);
-    --header-scrolled-bg: rgba(6, 17, 16, 0.95);
+    --header-bg: rgba(3, 13, 11, 0.85);
+    --header-scrolled-bg: rgba(3, 13, 11, 0.95);
 
     /* Ray path */
     --ray-bg: linear-gradient(to bottom,
         rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.05) 50%,
+        rgba(255,255,255,0.03) 50%,
         var(--color-gold-glow) 90%,
         rgba(212, 175, 55, 0) 100%);
 
@@ -63,6 +66,12 @@
     --radius-organic: 40px 16px 40px 16px;
 
     --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* Atmospheric effects */
+    --grain-opacity: 0.03;
+    --gradient-mesh-1: radial-gradient(ellipse 80% 50% at 20% 40%, rgba(39, 140, 98, 0.08) 0%, transparent 50%);
+    --gradient-mesh-2: radial-gradient(ellipse 60% 40% at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+    --gradient-mesh-3: radial-gradient(ellipse 100% 60% at 50% 100%, rgba(9, 32, 54, 0.3) 0%, transparent 50%);
 }
 
 /* ==========================================================================
@@ -120,6 +129,63 @@ html {
 body {
     overflow-x: hidden;
     position: relative;
+    background:
+        var(--gradient-mesh-1),
+        var(--gradient-mesh-2),
+        var(--gradient-mesh-3),
+        var(--color-bg-base);
+}
+
+/* Grain texture overlay for organic feel */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: var(--grain-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Atmospheric glow spots */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse 100% 100% at 0% 100%, rgba(15, 51, 37, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 80% at 100% 0%, rgba(9, 32, 54, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 50% 50%, rgba(6, 17, 16, 0.5) 0%, transparent 70%);
+    animation: atmosphereShift 20s ease-in-out infinite;
+}
+
+@keyframes atmosphereShift {
+    0%, 100% {
+        background:
+            radial-gradient(ellipse 100% 100% at 0% 100%, rgba(15, 51, 37, 0.4) 0%, transparent 50%),
+            radial-gradient(ellipse 80% 80% at 100% 0%, rgba(9, 32, 54, 0.3) 0%, transparent 50%),
+            radial-gradient(ellipse 60% 40% at 50% 50%, rgba(6, 17, 16, 0.5) 0%, transparent 70%);
+    }
+    33% {
+        background:
+            radial-gradient(ellipse 120% 90% at 10% 90%, rgba(15, 51, 37, 0.35) 0%, transparent 50%),
+            radial-gradient(ellipse 70% 90% at 90% 10%, rgba(9, 32, 54, 0.35) 0%, transparent 50%),
+            radial-gradient(ellipse 50% 50% at 40% 60%, rgba(6, 17, 16, 0.45) 0%, transparent 70%);
+    }
+    66% {
+        background:
+            radial-gradient(ellipse 90% 110% at 5% 95%, rgba(15, 51, 37, 0.3) 0%, transparent 50%),
+            radial-gradient(ellipse 90% 70% at 95% 5%, rgba(9, 32, 54, 0.25) 0%, transparent 50%),
+            radial-gradient(ellipse 70% 50% at 60% 40%, rgba(6, 17, 16, 0.55) 0%, transparent 70%);
+    }
 }
 
 h1, h2, h3, h4 {
@@ -159,6 +225,18 @@ ul {
     padding: 8rem 0;
     position: relative;
     z-index: 10;
+}
+
+/* Subtle section dividers with gradient lines */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(39, 140, 98, 0.2), rgba(212, 175, 55, 0.15), transparent);
 }
 
 .center {
@@ -201,13 +279,18 @@ ul {
 .btn-primary {
     background: linear-gradient(135deg, var(--color-green-light), #165c3e);
     color: var(--color-white);
-    box-shadow: 0 4px 15px rgba(39, 140, 98, 0.3);
+    box-shadow:
+        0 4px 15px rgba(39, 140, 98, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, #165c3e, var(--color-green-light));
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(39, 140, 98, 0.4);
+    box-shadow:
+        0 8px 25px rgba(39, 140, 98, 0.4),
+        0 0 30px rgba(39, 140, 98, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .btn-secondary {
@@ -465,6 +548,21 @@ ul {
     overflow: hidden;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse 50% 50% at 50% 0%, rgba(39, 140, 98, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 30% 30% at 70% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(9, 32, 54, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
 .hero-content {
     text-align: center;
     max-width: 800px;
@@ -592,6 +690,23 @@ ul {
     backdrop-filter: blur(10px);
 }
 
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(39, 140, 98, 0.2), transparent 50%, rgba(212, 175, 55, 0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
 .info-card:hover {
     transform: translateY(-5px);
     background: var(--card-bg-hover);
@@ -622,8 +737,284 @@ ul {
     display: inline-block;
 }
 
+/* Kid-style illustrations take full card width */
+.card-icon.forest-illustration,
+.card-icon.clouds-illustration {
+    width: 100%;
+    max-width: 100%;
+}
+
 .dark-green-card .card-icon { color: var(--color-green-light); }
 .deep-blue-card .card-icon { color: var(--color-blue-light); }
+
+/* ==========================================================================
+   KID-STYLE ILLUSTRATION ANIMATIONS
+   ========================================================================== */
+
+/* Forest illustration - trees that gently wobble */
+.forest-illustration .tree {
+    transform-origin: bottom center;
+}
+
+.forest-illustration .tree-1 {
+    animation: treeWobble 4s ease-in-out infinite;
+}
+
+.forest-illustration .tree-2 {
+    animation: treeWobble 5s ease-in-out infinite 0.5s;
+}
+
+.forest-illustration .tree-3 {
+    animation: treeWobble 6s ease-in-out infinite 1s;
+}
+
+.forest-illustration .tree-4 {
+    animation: treeWobble 4.5s ease-in-out infinite 1.5s;
+}
+
+@keyframes treeWobble {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    75% { transform: rotate(-2deg); }
+}
+
+/* Grass animation */
+.forest-illustration .grass {
+    transform-origin: bottom;
+    animation: grassSway 3s ease-in-out infinite;
+}
+
+.forest-illustration .grass-2 {
+    animation-delay: 0.5s;
+}
+
+.forest-illustration .grass-3 {
+    animation-delay: 1s;
+}
+
+@keyframes grassSway {
+    0%, 100% { transform: scaleY(1) rotate(0deg); }
+    50% { transform: scaleY(1.2) rotate(3deg); }
+}
+
+/* Flowers pulse */
+.forest-illustration .flower {
+    animation: flowerPop 3s ease-in-out infinite;
+}
+
+.forest-illustration .flower-1 { animation-delay: 0s; }
+.forest-illustration .flower-2 { animation-delay: 0.7s; }
+.forest-illustration .flower-3 { animation-delay: 1.4s; }
+
+@keyframes flowerPop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* Sun gentle pulse */
+.forest-illustration .sun-anim {
+    animation: sunPulse 4s ease-in-out infinite;
+}
+
+@keyframes sunPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+/* Ground gentle wave */
+.forest-illustration .ground-anim {
+    animation: groundWave 5s ease-in-out infinite;
+}
+
+@keyframes groundWave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+}
+
+/* Cloud illustration - clouds float gently */
+.clouds-illustration .cloud {
+    animation: cloudFloat 6s ease-in-out infinite;
+}
+
+.clouds-illustration .cloud-1 {
+    animation: cloudFloat 7s ease-in-out infinite;
+}
+
+.clouds-illustration .cloud-2 {
+    animation: cloudFloat 5s ease-in-out infinite 1s;
+}
+
+.clouds-illustration .cloud-3 {
+    animation: cloudFloat 8s ease-in-out infinite 2s;
+}
+
+@keyframes cloudFloat {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(5px) translateY(-3px); }
+    50% { transform: translateX(2px) translateY(-5px); }
+    75% { transform: translateX(-3px) translateY(-2px); }
+}
+
+/* A-frame trees gentle sway */
+.clouds-illustration .tree-a {
+    transform-origin: bottom center;
+}
+
+.clouds-illustration .tree-a-1 {
+    animation: treeSway 4s ease-in-out infinite;
+}
+
+.clouds-illustration .tree-a-2 {
+    animation: treeSway 5s ease-in-out infinite 0.5s;
+}
+
+.clouds-illustration .tree-a-3 {
+    animation: treeSway 4.5s ease-in-out infinite 1s;
+}
+
+@keyframes treeSway {
+    0%, 100% { transform: rotate(0deg); }
+    33% { transform: rotate(2deg); }
+    66% { transform: rotate(-1.5deg); }
+}
+
+/* Clouds sun pulse */
+.clouds-illustration .sun-anim {
+    animation: sunPulse 4s ease-in-out infinite;
+}
+
+/* Ground wave for clouds */
+.clouds-illustration .ground-anim {
+    animation: groundWave 5s ease-in-out infinite;
+}
+
+/* Zigzag rays gentle animation */
+.clouds-illustration .zigzag {
+    animation: zigzagWiggle 3s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.clouds-illustration .ray-1 { animation-delay: 0s; }
+.clouds-illustration .ray-2 { animation-delay: 0.3s; }
+.clouds-illustration .ray-3 { animation-delay: 0.6s; }
+.clouds-illustration .ray-4 { animation-delay: 0.9s; }
+.clouds-illustration .ray-5 { animation-delay: 1.2s; }
+
+@keyframes zigzagWiggle {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(5deg); }
+}
+
+/* Card hover - gentle lift with illustration animation */
+.info-card:hover .tree,
+.info-card:hover .cloud,
+.info-card:hover .flower,
+.info-card:hover .ground-anim,
+.info-card:hover .sun-anim {
+    animation-play-state: paused;
+}
+
+.info-card:hover .tree {
+    animation: treeWobble 2s ease-in-out infinite;
+}
+
+.info-card:hover .cloud {
+    animation: cloudFloat 3s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   ECONOMY ILLUSTRATION ANIMATIONS
+   ========================================================================== */
+.economy-illustration {
+    max-width: 280px;
+    height: auto;
+}
+
+/* Coins gently float */
+.economy-illustration .coin {
+    animation: coinFloat 4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.economy-illustration .coin-center {
+    animation: coinPulse 3s ease-in-out infinite;
+}
+
+.economy-illustration .coin-1 {
+    animation: coinFloat 5s ease-in-out infinite 0.5s;
+}
+
+.economy-illustration .coin-2 {
+    animation: coinFloat 4.5s ease-in-out infinite 1s;
+}
+
+.economy-illustration .coin-3 {
+    animation: coinFloat 5.5s ease-in-out infinite 1.5s;
+}
+
+.economy-illustration .coin-4 {
+    animation: coinFloat 4s ease-in-out infinite 2s;
+}
+
+@keyframes coinFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(2deg); }
+    75% { transform: translateY(-3px) rotate(-1deg); }
+}
+
+@keyframes coinPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Flow paths animate */
+.economy-illustration .flow-path {
+    stroke-dashoffset: 20;
+    animation: flowDash 2s linear infinite;
+}
+
+@keyframes flowDash {
+    to { stroke-dashoffset: 0; }
+}
+
+/* Plants gently sway */
+.economy-illustration .plant {
+    transform-origin: bottom center;
+    animation: plantSway 4s ease-in-out infinite;
+}
+
+.economy-illustration .plant-2 {
+    animation-delay: 1s;
+}
+
+@keyframes plantSway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(3deg); }
+}
+
+/* Sun glow pulse */
+.economy-illustration .sun-glow {
+    animation: sunGlow 4s ease-in-out infinite;
+}
+
+@keyframes sunGlow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* Sparkles twinkle */
+.economy-illustration .sparkle {
+    animation: sparkleTwinkle 2s ease-in-out infinite;
+}
+
+.economy-illustration .sp-1 { animation-delay: 0s; }
+.economy-illustration .sp-2 { animation-delay: 0.5s; }
+.economy-illustration .sp-3 { animation-delay: 1s; }
+
+@keyframes sparkleTwinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+}
 
 /* ==========================================================================
    SERVICES GRID
@@ -638,7 +1029,9 @@ ul {
 .service-card {
     padding: 2.5rem;
     border-radius: var(--radius-md);
-    background: var(--card-bg);
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 50%),
+        var(--card-bg);
     border: 1px solid var(--card-border);
     position: relative;
     overflow: hidden;
@@ -648,10 +1041,29 @@ ul {
     flex-direction: column;
 }
 
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+}
+
 .service-card:hover {
     transform: translateY(-10px);
     border-color: var(--border-strong);
-    background: var(--card-bg-hover);
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%),
+        var(--card-bg-hover);
 }
 
 .service-card h3 {
@@ -672,13 +1084,13 @@ ul {
     height: 150px;
     border-radius: 50%;
     filter: blur(50px);
-    opacity: 0.3;
+    opacity: 0.4;
     transition: var(--transition);
 }
 
 .service-card:hover .card-glow {
-    opacity: 0.6;
-    transform: scale(1.2);
+    opacity: 0.7;
+    transform: scale(1.3);
 }
 
 /* Card Themes based on Document Structure */
@@ -736,6 +1148,10 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.economy-illustration {
+    filter: drop-shadow(0 10px 30px rgba(212, 175, 55, 0.2));
 }
 
 /* Abstract Stone representations */
@@ -872,17 +1288,17 @@ ul {
 
 .particle--teal {
     background: radial-gradient(circle, rgba(0, 206, 209, 0.8) 0%, rgba(0, 206, 209, 0.2) 70%, transparent 100%);
-    box-shadow: 0 0 6px 2px rgba(0, 206, 209, 0.3);
+    box-shadow: 0 0 6px 2px rgba(0, 206, 209, 0.4), 0 0 20px rgba(0, 206, 209, 0.2);
 }
 
 .particle--cyan {
     background: radial-gradient(circle, rgba(32, 178, 170, 0.7) 0%, rgba(32, 178, 170, 0.15) 70%, transparent 100%);
-    box-shadow: 0 0 5px 1px rgba(32, 178, 170, 0.25);
+    box-shadow: 0 0 5px 1px rgba(32, 178, 170, 0.35), 0 0 15px rgba(32, 178, 170, 0.15);
 }
 
 .particle--gold {
     background: radial-gradient(circle, rgba(212, 175, 55, 0.9) 0%, rgba(212, 175, 55, 0.3) 70%, transparent 100%);
-    box-shadow: 0 0 8px 3px rgba(212, 175, 55, 0.35);
+    box-shadow: 0 0 8px 3px rgba(212, 175, 55, 0.45), 0 0 25px rgba(212, 175, 55, 0.25);
 }
 
 @keyframes particleDrift {
@@ -1054,6 +1470,233 @@ ul {
 }
 
 /* ==========================================================================
+   AGENCIES ECOSYSTEM SECTION
+   ========================================================================== */
+.agencies-section {
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.agencies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.agency-card-link {
+    text-decoration: none;
+    display: block;
+}
+
+.agency-card-hub,
+.agency-card-straight,
+.agency-card-link.current-agency {
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.agency-card-hub {
+    background: linear-gradient(145deg, rgba(9, 32, 54, 0.6), rgba(6, 17, 16, 0.8));
+}
+
+.agency-card-straight {
+    background: linear-gradient(145deg, rgba(39, 140, 98, 0.3), rgba(6, 17, 16, 0.8));
+}
+
+.current-agency {
+    background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(6, 17, 16, 0.8));
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.agency-card-link:hover .agency-card-hub,
+.agency-card-link:hover .agency-card-straight {
+    transform: translateY(-8px);
+    background: var(--card-bg-hover);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.current-agency:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+}
+
+.agency-card-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.agency-card-hub .agency-card-icon {
+    background: linear-gradient(135deg, var(--color-blue-dark), var(--color-blue-light));
+    color: var(--color-blue-light);
+}
+
+.agency-card-straight .agency-card-icon {
+    background: linear-gradient(135deg, var(--color-green-dark), var(--color-green-light));
+    color: var(--color-green-light);
+}
+
+.agency-card-link.current-agency .agency-card-icon {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+    color: var(--color-gold);
+}
+
+.agency-card-hub h3,
+.agency-card-straight h3,
+.current-agency h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.agency-card-hub p,
+.agency-card-straight p,
+.current-agency p {
+    font-size: 0.95rem;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.agency-link-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-gold);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.agency-card-straight .agency-link-text {
+    color: var(--color-green-light);
+}
+
+.current-agency .agency-current-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-gold);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   DETAILED SERVICES SECTION
+   ========================================================================== */
+.detailed-services {
+    background: var(--color-bg-base);
+}
+
+.detailed-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.detailed-service-card {
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    transition: var(--transition);
+}
+
+.detailed-service-card:hover {
+    background: var(--card-bg-hover);
+    border-color: var(--border-strong);
+    transform: translateY(-5px);
+}
+
+.detailed-service-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    background: linear-gradient(135deg, rgba(39, 140, 98, 0.2), rgba(212, 175, 55, 0.1));
+    color: var(--color-gold);
+}
+
+.detailed-service-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.detailed-service-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   PROJECTS SECTION
+   ========================================================================== */
+.projects-section {
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--border-subtle);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.project-card-large {
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(145deg, rgba(15, 51, 37, 0.4), rgba(6, 17, 16, 0.6));
+    border: 1px solid var(--card-border);
+    transition: var(--transition);
+}
+
+.project-card-large:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(145deg, rgba(15, 51, 37, 0.6), rgba(6, 17, 16, 0.8));
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.project-card-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--color-gold);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.project-card-large h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.project-card-large p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 900px) {
@@ -1068,6 +1711,14 @@ ul {
 
     .hero-title {
         font-size: 3.5rem;
+    }
+
+    .agencies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 }
 

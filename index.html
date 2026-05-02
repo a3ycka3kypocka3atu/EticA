@@ -71,7 +71,9 @@
                 <ul class="nav-links">
                     <li><a href="#about" data-i18n="nav_philosophy">Філософія</a></li>
                     <li><a href="#services" data-i18n="nav_services">Послуги</a></li>
-                    <li><a href="#ecosystem" data-i18n="nav_ecosystem">Екосистема</a></li>
+                    <li><a href="#detailed-services" data-i18n="nav_detailed_services">Детальні послуги</a></li>
+                    <li><a href="#projects" data-i18n="nav_projects">Проєкти</a></li>
+                    <li><a href="#agencies" data-i18n="nav_ecosystem">Екосистема</a></li>
                     <li><a href="#contact" class="btn btn-outline" data-i18n="nav_contact">Обговорити проєкт</a></li>
                     
                     <!-- Language Switcher -->
@@ -218,164 +220,140 @@
                     </div>
                     <div class="about-cards">
                         <div class="info-card dark-green-card">
-                            <svg class="card-icon" width="100%" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin-bottom: 2rem;">
-                                <defs>
-                                    <linearGradient id="forestFog" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#165c3e"/>
-                                        <stop offset="100%" stop-color="#0a1f18"/>
-                                    </linearGradient>
-                                    <linearGradient id="forestHill" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#1ca88d"/>
-                                        <stop offset="100%" stop-color="#165c3e"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg class="card-icon forest-illustration" width="100%" viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin-bottom: 2rem;">
+                                <!-- Sun with wobbly rays - kid style -->
+                                <g class="sun-group">
+                                    <circle cx="250" cy="25" r="12" fill="#FFD93D" stroke="#E8B824" stroke-width="2" stroke-dasharray="80" class="sun-anim"/>
+                                    <!-- Wobbly sun rays -->
+                                    <path d="M250 8 Q252 12, 250 8" stroke="#FFD93D" stroke-width="2" stroke-linecap="round" class="ray ray-1"/>
+                                    <path d="M238 15 Q240 18, 242 15" stroke="#FFD93D" stroke-width="2" stroke-linecap="round" class="ray ray-2"/>
+                                    <path d="M262 18 Q260 20, 258 18" stroke="#FFD93D" stroke-width="2" stroke-linecap="round" class="ray ray-3"/>
+                                    <path d="M235 28 Q238 26, 240 28" stroke="#FFD93D" stroke-width="2" stroke-linecap="round" class="ray ray-4"/>
+                                    <path d="M265 30 Q262 28, 260 30" stroke="#FFD93D" stroke-width="2" stroke-linecap="round" class="ray ray-5"/>
+                                </g>
 
-                                <!-- Vibrant ground fog -->
-                                <path d="M 0 92 Q 75 88, 150 92 Q 225 96, 300 92 L 300 100 L 0 100 Z" fill="url(#forestFog)" opacity="0.4"/>
+                                <!-- Wobbly ground/hills -->
+                                <path d="M10 105 Q40 95, 70 100 Q100 105, 130 98 Q160 92, 200 97 Q240 102, 270 95 Q285 92, 300 98 L300 115 L0 115 Z"
+                                      fill="#7EC8A3" stroke="#5BA37A" stroke-width="2" stroke-linecap="round" class="ground-anim"/>
 
-                                <!-- Colorful misty hills -->
-                                <path d="M 0 85 Q 50 75, 100 80 Q 150 85, 200 78 Q 250 72, 300 80 L 300 100 L 0 100 Z" fill="url(#forestHill)" opacity="0.5"/>
+                                <!-- Simple kid-style trees - wobbly trunks -->
+                                <g class="tree tree-1">
+                                    <!-- Trunk - wobbly line -->
+                                    <path d="M45 105 Q43 85, 46 70" stroke="#8B5A2B" stroke-width="6" stroke-linecap="round" fill="none"/>
+                                    <!-- Crown - lumpy circle -->
+                                    <ellipse cx="46" cy="55" rx="18" ry="20" fill="#4A9B5B" stroke="#3D8B4F" stroke-width="2"/>
+                                    <!-- Simple detail circles -->
+                                    <circle cx="38" cy="50" r="5" fill="#5BA37A"/>
+                                    <circle cx="54" cy="58" r="6" fill="#5BA37A"/>
+                                    <circle cx="46" cy="45" r="4" fill="#6BC477"/>
+                                </g>
 
-                                <!-- Background trees - vibrant silhouettes -->
-                                <path d="M 20 90 L 20 55 L 12 65 L 20 60 L 15 70 L 20 65 L 8 80 L 20 75 Z" fill="#278c62" opacity="0.8"/>
-                                <path d="M 45 90 L 45 45 L 35 60 L 45 50 L 38 65 L 45 55 L 28 78 L 45 70 Z" fill="#1ca88d" opacity="0.9"/>
-                                <path d="M 280 90 L 280 50 L 270 62 L 280 55 L 272 68 L 280 60 L 265 78 L 280 72 Z" fill="#40d6ae" opacity="0.7"/>
+                                <g class="tree tree-2">
+                                    <!-- Trunk -->
+                                    <path d="M95 105 Q97 80, 94 60" stroke="#8B5A2B" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    <!-- Crown -->
+                                    <ellipse cx="94" cy="45" rx="22" ry="24" fill="#5BB86A" stroke="#4A9B5B" stroke-width="2"/>
+                                    <!-- Details -->
+                                    <circle cx="82" cy="38" r="6" fill="#6BC477"/>
+                                    <circle cx="100" cy="42" r="7" fill="#6BC477"/>
+                                    <circle cx="94" cy="32" r="5" fill="#7ED48A"/>
+                                </g>
 
-                                <!-- Mid-ground trees - bright greens -->
-                                <path d="M 70 90 L 70 35 M 55 55 L 70 70 L 85 55 M 50 70 L 70 85 L 90 70" stroke="#40d6ae" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M 95 90 L 95 25 M 80 45 L 95 65 L 110 45 M 72 60 L 95 80 L 118 60" stroke="#278c62" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M 130 90 L 130 30 M 115 50 L 130 68 L 145 50 M 105 62 L 130 82 L 155 62" stroke="#165c3e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <!-- Big center tree -->
+                                <g class="tree tree-3">
+                                    <!-- Trunk - thicker -->
+                                    <path d="M155 105 Q153 75, 157 50" stroke="#6B4423" stroke-width="8" stroke-linecap="round" fill="none"/>
+                                    <!-- Big lumpy crown -->
+                                    <path d="M155 60 Q130 55, 128 35 Q125 15, 155 12 Q175 15, 178 35 Q180 50, 155 55" fill="#4CAF50" stroke="#3D8B4F" stroke-width="2"/>
+                                    <!-- Extra lumps -->
+                                    <ellipse cx="140" cy="25" rx="10" ry="12" fill="#5BB86A"/>
+                                    <ellipse cx="168" cy="30" rx="8" ry="10" fill="#5BB86A"/>
+                                    <ellipse cx="155" cy="18" rx="7" ry="8" fill="#6BC477"/>
+                                    <!-- Small fruit/details -->
+                                    <circle cx="145" cy="35" r="3" fill="#E57373"/>
+                                    <circle cx="165" cy="40" r="3" fill="#E57373"/>
+                                    <circle cx="155" cy="25" r="2.5" fill="#E57373"/>
+                                </g>
 
-                                <!-- Central dominant tree - vibrant -->
-                                <path d="M 155 90 L 155 5" stroke="#0a1f18" stroke-width="5" stroke-linecap="round"/>
-                                <!-- Main crown layers - rich greens -->
-                                <path d="M 155 60 C 130 55, 125 30, 155 25 C 185 30, 180 55, 155 60 Z" fill="#278c62" stroke="#40d6ae" stroke-width="2"/>
-                                <path d="M 155 45 C 135 40, 130 20, 155 15 C 180 20, 175 40, 155 45 Z" fill="#1ca88d"/>
-                                <path d="M 155 35 C 142 32, 140 18, 155 12 C 170 18, 168 32, 155 35 Z" fill="#40d6ae"/>
-                                <!-- Side branches with colorful foliage -->
-                                <path d="M 155 55 Q 130 50, 120 35 Q 115 28, 125 25" stroke="#1ca88d" stroke-width="3" fill="none" stroke-linecap="round"/>
-                                <circle cx="120" cy="35" r="8" fill="#D4AF37" opacity="0.8"/>
-                                <circle cx="115" cy="28" r="5" fill="#FFE58F" opacity="0.7"/>
+                                <g class="tree tree-4">
+                                    <!-- Trunk -->
+                                    <path d="M220 105 Q222 88, 219 72" stroke="#8B5A2B" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    <!-- Crown -->
+                                    <ellipse cx="219" cy="58" rx="16" ry="18" fill="#5BB86A" stroke="#4A9B5B" stroke-width="2"/>
+                                    <circle cx="212" cy="52" r="5" fill="#6BC477"/>
+                                    <circle cx="226" cy="55" r="4" fill="#6BC477"/>
+                                </g>
 
-                                <path d="M 155 45 Q 180 40, 195 25 Q 200 18, 190 20" stroke="#278c62" stroke-width="3" fill="none" stroke-linecap="round"/>
-                                <circle cx="192" cy="22" r="10" fill="#40d6ae" opacity="0.8"/>
-                                <circle cx="198" cy="18" r="6" fill="#a7dec5" opacity="0.7"/>
+                                <!-- Simple flowers -->
+                                <g class="flower flower-1">
+                                    <circle cx="70" cy="98" r="4" fill="#FFEB3B" stroke="#FFC107" stroke-width="1"/>
+                                    <circle cx="68" cy="94" r="2" fill="#FF9800"/>
+                                </g>
+                                <g class="flower flower-2">
+                                    <circle cx="130" cy="95" r="3" fill="#E91E63" stroke="#C2185B" stroke-width="1"/>
+                                </g>
+                                <g class="flower flower-3">
+                                    <circle cx="185" cy="93" r="4" fill="#FFEB3B" stroke="#FFC107" stroke-width="1"/>
+                                    <circle cx="183" cy="89" r="2" fill="#FF9800"/>
+                                </g>
 
-                                <!-- Lower branches -->
-                                <path d="M 155 70 Q 125 68, 110 58 Q 105 52, 115 50" stroke="#165c3e" stroke-width="2" fill="none" stroke-linecap="round"/>
-                                <circle cx="110" cy="55" r="7" fill="#1ca88d" opacity="0.8"/>
-
-                                <path d="M 155 65 Q 185 62, 200 52 Q 208 46, 198 48" stroke="#278c62" stroke-width="2" fill="none" stroke-linecap="round"/>
-                                <circle cx="198" cy="50" r="6" fill="#165c3e" opacity="0.7"/>
-
-                                <!-- Foreground trees - extra vibrant -->
-                                <path d="M 200 90 L 200 40 M 185 60 L 200 72 L 215 60 M 180 68 L 200 82 L 220 68" stroke="#40d6ae" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M 230 90 L 230 50 M 220 65 L 230 75 L 240 65" stroke="#278c62" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="225" cy="58" r="6" fill="#D4AF37" opacity="0.8"/>
-                                <circle cx="235" cy="52" r="5" fill="#FFE58F" opacity="0.7"/>
-
-                                <path d="M 260 90 L 260 55 M 248 70 L 260 78 L 272 70" stroke="#1ca88d" stroke-width="3" stroke-linecap="round"/>
-                                <circle cx="250" cy="65" r="7" fill="#40d6ae" opacity="0.8"/>
-                                <circle cx="265" cy="58" r="6" fill="#165c3e" opacity="0.7"/>
-
-                                <path d="M 290 90 L 290 60 M 280 75 L 290 82 L 300 75" stroke="#278c62" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="282" cy="70" r="5" fill="#1ca88d" opacity="0.6"/>
-
-                                <!-- Glowing fireflies / particles in forest - golden -->
-                                <circle cx="85" cy="45" r="2" fill="#FFE58F" opacity="0.9">
-                                    <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite"/>
-                                </circle>
-                                <circle cx="145" cy="30" r="1.5" fill="#D4AF37" opacity="0.8">
-                                    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.5s" repeatCount="indefinite"/>
-                                </circle>
-                                <circle cx="175" cy="40" r="2" fill="#FFE58F" opacity="0.85">
-                                    <animate attributeName="opacity" values="0.85;0.35;0.85" dur="2.5s" repeatCount="indefinite"/>
-                                </circle>
-                                <circle cx="240" cy="55" r="1.5" fill="#D4AF37" opacity="0.75">
-                                    <animate attributeName="opacity" values="0.75;0.25;0.75" dur="1.8s" repeatCount="indefinite"/>
-                                </circle>
-                                <circle cx="60" cy="60" r="1.5" fill="#a7dec5" opacity="0.7">
-                                    <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.2s" repeatCount="indefinite"/>
-                                </circle>
+                                <!-- Little grass tufts -->
+                                <path d="M25 105 Q27 100, 28 105" stroke="#4A9B5B" stroke-width="2" stroke-linecap="round" class="grass grass-1"/>
+                                <path d="M28 105 Q30 98, 31 105" stroke="#5BB86A" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M170 105 Q172 100, 173 105" stroke="#4A9B5B" stroke-width="2" stroke-linecap="round" class="grass grass-2"/>
+                                <path d="M250 105 Q252 99, 253 105" stroke="#5BB86A" stroke-width="2" stroke-linecap="round" class="grass grass-3"/>
                             </svg>
                             <h3 data-i18n="card_eco_title">Екосистемний підхід та партнерства.</h3>
                             <p data-i18n="card_eco_desc">Prosvit Agency є флагманським проєктом всередині ширшої платформи для свідомого нетворкінгу. Для вашого бізнесу та ініціатив це означає швидкий доступ до перевірених фахівців, з яких ми формуємо команди під конкретні запити.</p>
                         </div>
                         <div class="info-card deep-blue-card">
-                            <svg class="card-icon" width="100%" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin-bottom: 2rem;">
-                                <defs>
-                                    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#092036"/>
-                                        <stop offset="50%" stop-color="#256b9e"/>
-                                        <stop offset="100%" stop-color="#40d6ae"/>
-                                    </linearGradient>
-                                    <linearGradient id="cloudGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#ffffff"/>
-                                        <stop offset="50%" stop-color="#FFE58F"/>
-                                        <stop offset="100%" stop-color="#D4AF37"/>
-                                    </linearGradient>
-                                    <linearGradient id="cloudGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#D4AF37"/>
-                                        <stop offset="100%" stop-color="#278c62"/>
-                                    </linearGradient>
-                                    <linearGradient id="cloudGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stop-color="#FFE58F"/>
-                                        <stop offset="100%" stop-color="#256b9e"/>
-                                    </linearGradient>
-                                </defs>
-
-                                <!-- Vibrant background sky -->
-                                <rect x="0" y="15" width="300" height="85" fill="url(#skyGrad)" opacity="0.5"/>
-
-                                <!-- Distant colorful clouds -->
-                                <ellipse cx="50" cy="55" rx="40" ry="15" fill="#256b9e" opacity="0.4"/>
-                                <ellipse cx="150" cy="45" rx="60" ry="20" fill="#1ca88d" opacity="0.35"/>
-                                <ellipse cx="260" cy="50" rx="45" ry="18" fill="#256b9e" opacity="0.4"/>
-
-                                <!-- Sun glow - vibrant gold -->
-                                <circle cx="240" cy="28" r="20" fill="#D4AF37" opacity="0.5"/>
-                                <circle cx="240" cy="28" r="14" fill="#FFE58F" opacity="0.7"/>
-                                <circle cx="240" cy="28" r="8" fill="#ffffff" opacity="0.5"/>
-
-                                <!-- Main cloud formation - left - golden/yellow -->
-                                <g transform="translate(20, 38)">
-                                    <ellipse cx="40" cy="28" rx="35" ry="20" fill="url(#cloudGrad1)"/>
-                                    <ellipse cx="20" cy="33" rx="25" ry="15" fill="#ffffff" opacity="0.95"/>
-                                    <ellipse cx="55" cy="30" rx="30" ry="18" fill="url(#cloudGrad1)" opacity="0.9"/>
-                                    <ellipse cx="35" cy="20" rx="20" ry="12" fill="#FFE58F" opacity="0.8"/>
+                            <svg class="card-icon clouds-illustration" width="100%" viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin-bottom: 2rem;">
+                                <!-- Sun with orange rays - not yellow -->
+                                <g class="sun-group">
+                                    <circle cx="60" cy="35" r="18" fill="#FF8C42" stroke="#E86E2D" stroke-width="2" class="sun-anim"/>
+                                    <!-- Short rays - like kid drawing -->
+                                    <path d="M60 12 L60 6" stroke="#FF8C42" stroke-width="3" stroke-linecap="round" class="ray ray-1"/>
+                                    <path d="M45 18 L40 13" stroke="#FF8C42" stroke-width="2.5" stroke-linecap="round" class="ray ray-2"/>
+                                    <path d="M75 20 L80 15" stroke="#FF8C42" stroke-width="2.5" stroke-linecap="round" class="ray ray-3"/>
+                                    <path d="M40 38 L33 38" stroke="#FF8C42" stroke-width="2.5" stroke-linecap="round" class="ray ray-4"/>
+                                    <path d="M80 40 L87 40" stroke="#FF8C42" stroke-width="2.5" stroke-linecap="round" class="ray ray-5"/>
                                 </g>
 
-                                <!-- Main cloud formation - center - pink/gold -->
-                                <g transform="translate(85, 28)">
-                                    <ellipse cx="50" cy="28" rx="48" ry="22" fill="url(#cloudGrad3)"/>
-                                    <ellipse cx="28" cy="35" rx="32" ry="16" fill="#ffffff" opacity="0.9"/>
-                                    <ellipse cx="72" cy="32" rx="38" ry="18" fill="url(#cloudGrad1)" opacity="0.85"/>
-                                    <ellipse cx="50" cy="18" rx="28" ry="14" fill="#FFE58F" opacity="0.9"/>
-                                    <ellipse cx="18" cy="26" rx="20" ry="11" fill="#D4AF37" opacity="0.7"/>
-                                    <ellipse cx="78" cy="22" rx="24" ry="13" fill="#ffffff" opacity="0.8"/>
+                                <!-- Wobbly clouds - white and light blue -->
+                                <g class="cloud cloud-1">
+                                    <path d="M180 45 Q175 35, 185 30 Q195 25, 205 32 Q215 28, 225 35 Q235 32, 235 45 Q238 55, 225 55 Q210 58, 195 55 Q180 58, 175 50 Q173 48, 180 45"
+                                          fill="#FFFFFF" stroke="#A8C8E8" stroke-width="2" stroke-linecap="round" class="cloud-shape"/>
                                 </g>
 
-                                <!-- Main cloud formation - right - teal/green -->
-                                <g transform="translate(175, 42)">
-                                    <ellipse cx="38" cy="25" rx="40" ry="18" fill="url(#cloudGrad2)"/>
-                                    <ellipse cx="15" cy="30" rx="28" ry="14" fill="#40d6ae" opacity="0.9"/>
-                                    <ellipse cx="52" cy="27" rx="32" ry="15" fill="url(#cloudGrad1)" opacity="0.85"/>
-                                    <ellipse cx="32" cy="17" rx="22" ry="11" fill="#ffffff" opacity="0.95"/>
+                                <g class="cloud cloud-2">
+                                    <path d="M100 55 Q95 45, 105 40 Q115 35, 125 42 Q135 38, 140 48 Q148 45, 148 55 Q150 65, 140 65 Q125 68, 110 65 Q95 68, 92 58 Q90 56, 100 55"
+                                          fill="#E8F4FC" stroke="#B8D4E8" stroke-width="2" stroke-linecap="round" class="cloud-shape"/>
                                 </g>
 
-                                <!-- Wispy colorful clouds -->
-                                <path d="M 55 58 Q 75 52, 95 58 Q 108 55, 118 60" stroke="#D4AF37" stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round"/>
-                                <path d="M 155 52 Q 175 47, 195 52 Q 212 48, 228 54" stroke="#FFE58F" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round"/>
+                                <g class="cloud cloud-3">
+                                    <path d="M240 60 Q235 50, 245 45 Q255 40, 265 48 Q275 45, 280 55 Q285 62, 275 65 Q260 68, 245 65 Q235 68, 232 62 Q230 60, 240 60"
+                                          fill="#FFFFFF" stroke="#A8C8E8" stroke-width="2" stroke-linecap="round" class="cloud-shape"/>
+                                </g>
 
-                                <!-- Birds in flight - vibrant -->
-                                <path d="M 75 22 Q 78 19, 81 22 Q 84 19, 87 22" stroke="#D4AF37" stroke-width="2" fill="none" stroke-linecap="round"/>
-                                <path d="M 92 17 Q 96 14, 100 17 Q 104 14, 108 17" stroke="#40d6ae" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                                <path d="M 108 25 Q 111 22, 114 25 Q 117 22, 120 25" stroke="#D4AF37" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                <!-- Simple A-frame trees - very kid style -->
+                                <g class="tree-a tree-a-1">
+                                    <path d="M50 100 L65 70 L80 100" stroke="#5A7F4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                    <path d="M55 90 L65 75 L75 90" fill="#6B9B5A" stroke="#5A7F4A" stroke-width="1"/>
+                                </g>
 
-                                <!-- Light rays - golden -->
-                                <path d="M 228 32 L 195 68" stroke="#FFE58F" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
-                                <path d="M 245 32 L 215 70" stroke="#D4AF37" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
-                                <path d="M 258 38 L 232 65" stroke="#FFE58F" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+                                <g class="tree-a tree-a-2">
+                                    <path d="M150 100 L168 60 L186 100" stroke="#5A7F4A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                    <path d="M156 88 L168 65 L180 88" fill="#7DAF5F" stroke="#5A7F4A" stroke-width="1.5"/>
+                                </g>
+
+                                <g class="tree-a tree-a-3">
+                                    <path d="M270 100 L282 75 L294 100" stroke="#5A7F4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                    <path d="M274 90 L282 78 L290 90" fill="#6B9B5A" stroke="#5A7F4A" stroke-width="1"/>
+                                </g>
+
+                                <!-- Wobbly ground line -->
+                                <path d="M0 100 Q30 95, 60 100 Q90 105, 120 98 Q150 92, 180 97 Q210 102, 240 95 Q270 90, 300 98"
+                                      stroke="#7DAF5F" stroke-width="3" fill="none" stroke-linecap="round" class="ground-anim"/>
                             </svg>
                             <h3 data-i18n="card_net_title">Мережа можливостей</h3>
                             <p data-i18n="card_net_desc">Ми також допомагаємо будувати екосистемні зв'язки та створювати крос-маркетингові кампанії з іншими проєктами платформи для обміну аудиторіями, ідеями та ресурсами.</p>
@@ -446,7 +424,7 @@
             </div>
         </section>
 
-        <!-- Ecosystem & Fund (Yellow Focus) -->
+        <!-- Ecosystem Section (Yellow Focus) -->
         <section class="section ecosystem" id="ecosystem">
             <div class="container">
                 <div class="ecosystem-content">
@@ -456,14 +434,288 @@
                         <p data-i18n="eco_desc">Коли агенція генерує фінансовий прибуток від комерційних замовлень, ці кошти не осідають у приватних кишенях. Вони спрямовуються у спільний фонд платформи, звідки фінансуються поточні завдання, розвиток нових інструментів та пряма підтримка тих ідей та людей, які перебувають на етапі закріплення в суспільстві.</p>
                     </div>
                     <div class="ecosystem-visual">
-                        <!-- Abstract representation of the stones / gold bottom -->
-                        <div class="stone-visual">
-                            <div class="stone gold-stone"></div>
-                            <div class="stone dark-stone s1"></div>
-                            <div class="stone dark-stone s2"></div>
-                            <div class="stone dark-stone s3"></div>
-                            <div class="water-ripple"></div>
+                        <!-- Kid-style circular economy illustration -->
+                        <svg class="economy-illustration" width="280" height="200" viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Ground / Pool -->
+                            <ellipse cx="140" cy="165" rx="120" ry="25" fill="#1A5F4A" stroke="#0D4A35" stroke-width="2"/>
+                            <ellipse cx="140" cy="160" rx="100" ry="18" fill="#278C62" opacity="0.6"/>
+
+                            <!-- Water in pool -->
+                            <ellipse cx="140" cy="158" rx="80" ry="12" fill="#256B9E" opacity="0.5"/>
+
+                            <!-- Central big gold coin -->
+                            <g class="coin coin-center">
+                                <circle cx="140" cy="130" r="35" fill="#D4AF37" stroke="#B8962E" stroke-width="3"/>
+                                <circle cx="140" cy="130" r="28" fill="none" stroke="#FFE58F" stroke-width="2" stroke-dasharray="4 3"/>
+                                <circle cx="140" cy="130" r="20" fill="#FFE58F" opacity="0.5"/>
+                                <text x="140" y="136" text-anchor="middle" font-size="20" font-weight="bold" fill="#8B6914">$</text>
+                            </g>
+
+                            <!-- Smaller coins flowing in -->
+                            <g class="coin coin-1">
+                                <circle cx="55" cy="80" r="20" fill="#D4AF37" stroke="#B8962E" stroke-width="2"/>
+                                <circle cx="55" cy="80" r="14" fill="#FFE58F" opacity="0.4"/>
+                                <path d="M55 95 Q55 120, 90 145" stroke="#FFE58F" stroke-width="3" fill="none" stroke-dasharray="5 3" class="flow-path"/>
+                            </g>
+
+                            <g class="coin coin-2">
+                                <circle cx="225" cy="70" r="18" fill="#D4AF37" stroke="#B8962E" stroke-width="2"/>
+                                <circle cx="225" cy="70" r="12" fill="#FFE58F" opacity="0.4"/>
+                                <path d="M225 88 Q225 115, 180 140" stroke="#FFE58F" stroke-width="3" fill="none" stroke-dasharray="5 3" class="flow-path"/>
+                            </g>
+
+                            <g class="coin coin-3">
+                                <circle cx="40" cy="130" r="15" fill="#D4AF37" stroke="#B8962E" stroke-width="2"/>
+                                <circle cx="40" cy="130" r="10" fill="#FFE58F" opacity="0.4"/>
+                                <path d="M55 140 Q80 150, 105 155" stroke="#FFE58F" stroke-width="2" fill="none" stroke-dasharray="4 3" class="flow-path"/>
+                            </g>
+
+                            <g class="coin coin-4">
+                                <circle cx="240" cy="120" r="16" fill="#D4AF37" stroke="#B8962E" stroke-width="2"/>
+                                <circle cx="240" cy="120" r="11" fill="#FFE58F" opacity="0.4"/>
+                                <path d="M224 136 Q180 148, 160 152" stroke="#FFE58F" stroke-width="2" fill="none" stroke-dasharray="4 3" class="flow-path"/>
+                            </g>
+
+                            <!-- Small plants growing (representing growth) -->
+                            <g class="plant plant-1">
+                                <path d="M30 165 Q28 155, 32 150" stroke="#4A9B5B" stroke-width="2" stroke-linecap="round"/>
+                                <ellipse cx="32" cy="148" rx="6" ry="8" fill="#5BB86A"/>
+                            </g>
+
+                            <g class="plant plant-2">
+                                <path d="M250 165 Q252 155, 248 148" stroke="#4A9B5B" stroke-width="2" stroke-linecap="round"/>
+                                <ellipse cx="248" cy="146" rx="7" ry="9" fill="#5BB86A"/>
+                            </g>
+
+                            <!-- Sun/coin glow above -->
+                            <g class="sun-glow">
+                                <circle cx="140" cy="40" r="25" fill="#FFD93D" opacity="0.3"/>
+                                <circle cx="140" cy="40" r="18" fill="#FFD93D" opacity="0.5"/>
+                            </g>
+
+                            <!-- Sparkles -->
+                            <g class="sparkles">
+                                <path d="M100 50 L103 55 L108 55 L104 58 L106 63 L100 60 L94 63 L96 58 L92 55 L97 55 Z" fill="#FFE58F" class="sparkle sp-1"/>
+                                <path d="M180 45 L182 49 L186 49 L183 51 L184 55 L180 53 L176 55 L177 51 L174 49 L178 49 Z" fill="#FFE58F" class="sparkle sp-2"/>
+                                <path d="M160 75 L162 78 L165 78 L163 80 L164 83 L160 81 L156 83 L157 80 L154 78 L158 78 Z" fill="#FFE58F" class="sparkle sp-3"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agency Ecosystem Links -->
+        <section class="section agencies-section" id="agencies">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="eyebrow" data-i18n="agencies_eyebrow">Екосистема MA3</span>
+                    <h2 data-i18n="agencies_title">Три агенції — один арсенал</h2>
+                    <p class="subtitle" data-i18n="agencies_subtitle">Обирайте ту, що відповідає вашому бізнесу. Кожна агенція — унікальний стиль і підхід.</p>
+                </div>
+
+                <div class="agencies-grid">
+                    <!-- MA3 Hub - Main -->
+                    <a href="https://ma-3-rose.vercel.app" target="_blank" class="agency-card-link">
+                        <div class="agency-card-hub">
+                            <div class="agency-card-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                                    <path d="M2 12h20"></path>
+                                </svg>
+                            </div>
+                            <h3>MA3 Agency 3.0</h3>
+                            <p data-i18n="agency_hub_desc">Головна сторінка всіх трьох агенцій. Познайомтесь з екосистемою MA3.</p>
+                            <span class="agency-link-text">
+                                <i class="ph ph-arrow-square-out"></i>
+                                ma-3-rose.vercel.app
+                            </span>
                         </div>
+                    </a>
+
+                    <!-- Straightforward Agency - Regular Business -->
+                    <a href="https://agencyb-vert.vercel.app" target="_blank" class="agency-card-link">
+                        <div class="agency-card-straight">
+                            <div class="agency-card-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                                    <path d="M8 21h8"></path>
+                                    <path d="M12 17v4"></path>
+                                </svg>
+                            </div>
+                            <h3 data-i18n="agency_straight_title">Straightforward Agency</h3>
+                            <p data-i18n="agency_straight_desc">Для класичного бізнесу. Максимально простий підхід: чіткі результати, надійність, зростання прибутку.</p>
+                            <span class="agency-link-text">
+                                <i class="ph ph-arrow-square-out"></i>
+                                agencyb-vert.vercel.app
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Ethic/Conscious Agency - This one -->
+                    <div class="agency-card-link current-agency">
+                        <div class="agency-card-icon current">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="agency_ethic_title">Ethic & Conscious Agency</h3>
+                        <p data-i18n="agency_ethic_desc">Для свідомих проєктів. Ідейність, етика, гармонія. Працюємо з вашою аудиторією на глибокому рівні.</p>
+                        <span class="agency-current-badge">
+                            <i class="ph ph-check-circle"></i>
+                            Поточна агенція
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Services Section -->
+        <section class="section detailed-services" id="detailed-services">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="eyebrow" data-i18n="detailed_srv_eyebrow">Повний спектр послуг</span>
+                    <h2 data-i18n="detailed_srv_title">Від аналізу до готового продукту</h2>
+                    <p class="subtitle" data-i18n="detailed_srv_subtitle">Ми будуємо готові системи: від ідеї до запуску та масштабування.</p>
+                </div>
+
+                <div class="detailed-services-grid">
+                    <!-- Marketing Research -->
+                    <div class="detailed-service-card">
+                        <div class="detailed-service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="srv_research_title">Маркетингові Дослідження</h3>
+                        <p data-i18n="srv_research_desc">Глибокий аналіз ринку, конкурентів та аудиторії. Client DNA, офер-логіка та фаннельна економіка.</p>
+                    </div>
+
+                    <!-- Sites & Landings -->
+                    <div class="detailed-service-card">
+                        <div class="detailed-service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                                <path d="M8 21h8"></path>
+                                <path d="M12 17v4"></path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="srv_digital_title">Цифрова Присутність</h3>
+                        <p data-i18n="srv_digital_desc">Сучасна веб-розробка, UI/UX дизайн і тексти, що транслюють суть вашого бізнесу.</p>
+                    </div>
+
+                    <!-- MVP & Product -->
+                    <div class="detailed-service-card">
+                        <div class="detailed-service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="srv_mvp_title">MVP та Продукт</h3>
+                        <p data-i18n="srv_mvp_desc">React/Vite інтерфейси, Supabase інтеграція, персональні кабінети та продуктова логіка.</p>
+                    </div>
+
+                    <!-- Telegram Bots -->
+                    <div class="detailed-service-card">
+                        <div class="detailed-service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="srv_telegram_title">Telegram Боти</h3>
+                        <p data-i18n="srv_telegram_desc">Telegram-bot flows, форми, профілі користувачів, швидкий вхід та генерація лідів.</p>
+                    </div>
+
+                    <!-- Funnel & Analytics -->
+                    <div class="detailed-service-card">
+                        <div class="detailed-service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="srv_funnel_title">Воронки та Аналітика</h3>
+                        <p data-i18n="srv_funnel_desc">Аудит клієнтського шляху, CTA, трекінг та виявлення точок падіння конверсії.</p>
+                    </div>
+
+                    <!-- Integrations -->
+                    <div class="detailed-service-card">
+                        <div class="detailed-service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="srv_integrations_title">Інтеграції</h3>
+                        <p data-i18n="srv_integrations_desc">Таблиці даних, профілі, логіка мемчінгу та структуровані дані.</p>
+                    </div>
+
+                    <!-- Automations -->
+                    <div class="detailed-service-card">
+                        <div class="detailed-service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="srv_automations_title">Автоматизації</h3>
+                        <p data-i18n="srv_automations_desc">n8n воркфлоу, CRM синхронізація та автоматизовані звітні потоки.</p>
+                    </div>
+
+                    <!-- Video Automation -->
+                    <div class="detailed-service-card">
+                        <div class="detailed-service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                <rect x="1" y="5" width="15" height="14" rx="2"></rect>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="srv_video_title">Відео-автоматизація</h3>
+                        <p data-i18n="srv_video_desc">Remotion/code-driven відео для персоналізованих та масштабованих креативів.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section projects-section" id="projects">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="eyebrow" data-i18n="projects_eyebrow">Наші проєкти</span>
+                    <h2 data-i18n="projects_title">Платформа для свідомого розвитку</h2>
+                    <p class="subtitle" data-i18n="projects_subtitle">Ми не просто агенція — ми будуємо екосистему для свідомих ініціатив та людей.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Networking Platform -->
+                    <div class="project-card-large">
+                        <div class="project-card-badge">Platform</div>
+                        <h3>Networking Platform</h3>
+                        <p>Платформа для колаборації та нетворкінгу для свідомих людей, які ведуть здоровий спосіб життя, турбуються про природу та займають проактивну соціальну позицію. Включає внутрішній фонд для підтримки та розвитку нових стартапів.</p>
+                    </div>
+
+                    <!-- AI Personal Cabinet -->
+                    <div class="project-card-large">
+                        <div class="project-card-badge">AI Tool</div>
+                        <h3>AI Personal Cabinet</h3>
+                        <p>Інструмент для структурування інформації та зручного управління персональними та командними проєктами. Оснащений AI-асистентами для оптимізації робочих процесів та має потужні можливості шерингу в колаборативній системі.</p>
+                    </div>
+
+                    <!-- Networking & Dating Bot -->
+                    <div class="project-card-large">
+                        <div class="project-card-badge">Bot</div>
+                        <h3>Networking & Dating Bot</h3>
+                        <p>Просунутий бот для знайомств, створення персональних досьє та відстеження стосунків. Включає безпечне зберігання даних, функції глибокого психологічного аналізу та інтегровані ігрові механіки.</p>
+                    </div>
+
+                    <!-- Online/Offline School -->
+                    <div class="project-card-large">
+                        <div class="project-card-badge">Education</div>
+                        <h3>Online/Offline School</h3>
+                        <p>Освітній та ідеологічний проєкт, що поєднує онлайн-інфраструктуру для навчання з фізичними зустрічами (включаючи івенти з партнерами в Празі). Проєкт глибоко фокусується на психологічному та фізичному здоров'ї, самосвідомості, духовності та екологічному мисленні.</p>
                     </div>
                 </div>
             </div>
